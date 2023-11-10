@@ -1,0 +1,23 @@
+@import '../../assets/scss/colors';
+
+.scrollbar {
+    color: #dfe3e4;
+    height: inherit;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin-right: 10px;
+    padding-right: 10px;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $db-bg-dashboard;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $db-bg-main;
+    }
+}

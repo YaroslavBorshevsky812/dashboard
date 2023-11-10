@@ -1,0 +1,183 @@
+@import '../../../assets/scss/colors';
+
+.workout-item-card {
+    width: 100%;
+    height: 100%;
+    color: white;
+
+    &__step-one {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        padding: 0px 20px;
+    }
+
+    &__content {
+        height: 270px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 20px;
+    }
+
+    &__left-side {
+        text-align: center;
+        width: 70%;
+
+        .list-item:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__right-side {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__btn {
+            &:hover {
+                path {
+                    fill: $db-hover;
+                }
+            }
+        }
+
+        &__description {
+            text-align: center;
+            padding: 0px 10px;
+
+            opacity: 0; /*Элемент полностью прозрачный (невидимый)*/
+            transition: 1s; /*Скорость перехода состояния элемента*/
+            animation: show 0.7s 1; /* Указываем название анимации, её время и количество повторов*/
+            animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+        }
+    }
+
+    &__repetitions {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .repetitions-header {
+            width: 90%;
+
+            color: #dfe3e4;
+
+            margin-bottom: 10px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+        }
+
+        .repetitions-list {
+            height: 200px;
+            margin-bottom: 10px;
+            // .list-item:not(:last-child) {
+            //     margin-bottom: 10px;
+            // }
+        }
+    }
+
+    .right-arrow {
+        width: 35px;
+        transition: all 0.1s;
+
+        &:hover {
+            fill: $db-hover;
+        }
+    }
+
+    .repetition-creator {
+        opacity: 0; /*Элемент полностью прозрачный (невидимый)*/
+        transition: 1s; /*Скорость перехода состояния элемента*/
+        animation: show 0.3s 1; /* Указываем название анимации, её время и количество повторов*/
+        animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+    }
+}
+
+.workout-item-card__wrapper {
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+}
+
+// ================ Стили для date picker (потом убрать)/
+
+.ant-picker {
+    background: none;
+}
+
+.ant-picker .ant-picker-input > input {
+    color: #dfe3e4;
+}
+
+.ant-picker .ant-picker-input > input::placeholder {
+    color: #dfe3e4;
+}
+
+.ant-picker-suffix {
+    svg {
+        fill: #dfe3e4;
+    }
+}
+
+// ================ Стили для инпута текста (потом убрать)/
+
+.ant-input {
+    max-width: 300px;
+    background: none;
+    color: #dfe3e4;
+
+    &::placeholder {
+        color: #dfe3e4;
+    }
+}
+
+.ant-input-number {
+    max-width: 300px;
+    background: none;
+    color: #dfe3e4;
+
+    &::placeholder {
+        color: #dfe3e4;
+    }
+}
+
+// Анимация появления
+@keyframes show {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.select-btn {
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        color: $db-hover;
+        border: 1px solid $db-hover;
+    }
+}
+
+.exercise-titles {
+    .list-item:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}

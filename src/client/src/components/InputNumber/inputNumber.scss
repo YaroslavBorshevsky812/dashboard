@@ -1,0 +1,126 @@
+@import '../../assets/scss/colors';
+
+.input-number {
+    width: 100%;
+    height: 30px;
+    background: none;
+  
+    border: none;
+    border-radius: 6px;
+    outline: 0;
+  
+    color: #dfe3e4;
+    font-size: 14px;
+    padding: 0 11px;
+  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  
+    box-sizing: border-box;
+  
+    &__wrapper {
+      width: 88px;
+      height: 30px;
+  
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  
+      position: relative;
+      border: 1px solid white;
+      border-radius: 6px;
+  
+      transition: all 0.2s ease-in-out;
+  
+      &-focused {
+        border: 1px solid $db-hover;
+        box-shadow: 0 0 0 2px rgba(0, 72, 255, 0.132);
+        border-radius: 6px;
+      }
+  
+      &-focused .arrow-container {
+        opacity: 1;
+      }
+  
+      &:hover {
+        border: 1px solid $db-hover;
+      }
+  
+      &:hover .arrow-container {
+        opacity: 1;
+      }
+    }
+  }
+  
+  /* Arrows */
+  .arrow-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25px;
+    height: 100%;
+  
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+  
+    box-sizing: border-box;
+  
+    border-start-end-radius: 6px;
+    border-end-end-radius: 6px;
+    cursor: pointer;
+  
+    transition: opacity 0.2s linear 0.2s;
+  }
+  
+  .arrow-up {
+    fill: white;
+    transform: rotate(180deg);
+    transition: all 0.2s ease-in-out;
+  
+    &__wrapper {
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      border-inline-start: 1px solid white;
+  
+      transition: all 0.2s ease-in-out;
+  
+      &:hover {
+        height: 60%;
+      }
+  
+      &:hover .arrow-up {
+        fill: $db-hover;
+      }
+    }
+  }
+  
+  .arrow-down {
+    fill: white;
+    transition: all 0.2s ease-in-out;
+  
+    &__wrapper {
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      border-block-start: 1px solid white;
+      border-inline-start: 1px solid white;
+  
+      transition: all 0.2s ease-in-out;
+  
+      &:hover {
+        height: 60%;
+      }
+  
+      &:hover .arrow-down {
+        fill: $db-hover;
+      }
+    }
+  }

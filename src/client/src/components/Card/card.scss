@@ -1,0 +1,116 @@
+@import '../../assets/scss/colors';
+
+.card {
+    background-color: $db-gb-card;
+    border-radius: 15px;
+    cursor: pointer;
+
+    padding: 12px 12px;
+    position: relative;
+
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+    }
+
+    &__header {
+        &__btn {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            margin-bottom: 10px;
+
+            .exit-btn {
+                transform: rotate(45deg);
+
+                &:hover {
+                    path {
+                        fill: $db-hover;
+                    }
+                }
+            }
+        }
+
+        &__title {
+            padding: 0px 24px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__body {
+        height: fit-content;
+        display: flex;
+        flex-direction: row;
+
+        &__content {
+            width: 100%;
+        }
+    }
+
+    &__sidebar {
+        background-color: $db-bg-main;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top: 30%;
+
+        border: 1px solid white;
+        padding: 20px 10px;
+        padding-right: 5px;
+
+        border-bottom-left-radius: 75%;
+        border-top-left-radius: 75%;
+
+        &__item {
+            max-width: 15px;
+            & + & {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    opacity: 0; /*Элемент полностью прозрачный (невидимый)*/
+    transition: 1s; /*Скорость перехода состояния элемента*/
+    animation: show 0.3s 1; /* Указываем название анимации, её время и количество повторов*/
+    animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+}
+
+.card__sidebar__item.calendar {
+    &:hover {
+        path {
+            stroke: $db-hover;
+        }
+    }
+}
+
+.card__sidebar__item.plus,
+.card__sidebar__item.garbage {
+    &:hover {
+        path {
+            fill: $db-hover;
+        }
+    }
+}
+
+.card.with-sidebar {
+    .card__body__content {
+        margin-right: 25px;
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
