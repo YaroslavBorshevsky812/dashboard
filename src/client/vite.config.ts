@@ -8,5 +8,4 @@ export default defineConfig({
     server: {
         open: '/dashboard',
     },
-    base: '/dashboard'
 });
