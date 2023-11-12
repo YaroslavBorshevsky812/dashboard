@@ -4,8 +4,8 @@ import axios from 'axios';
 import { useLocalStorage } from '../../utils/useLocalStorage';
 
 const AuthPage = () => {
-    const [jwt, setJwt] = useLocalStorage('', 'jwt');
-    const [personId, setPersonId] = useLocalStorage('', 'personId')
+    const [, setJwt] = useLocalStorage('', 'jwt');
+    const [, setPersonId] = useLocalStorage('', 'personId')
 
     const [passwordValue, setPasswordValue] = useState('');
     const [nameValue, setNameValue] = useState('');

@@ -9,7 +9,7 @@ interface Props {
 
 // eslint-disable-next-line react/prop-types
 const PrivateRoute: FC<Props> = ({ children }) => {
-  const [jwt, setJwt] = useLocalStorage("", "jwt");
+  const [jwt] = useLocalStorage("", "jwt");
   
   return jwt ? children : <Navigate to="/auth" />;
 };
