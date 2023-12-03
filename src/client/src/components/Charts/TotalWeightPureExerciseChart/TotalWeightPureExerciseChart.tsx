@@ -59,13 +59,15 @@ const TotalWeightPureExerciseChart: FC<Props> = (props) => {
 
         /** Считаем минимальное значнеие по Y */
         const minValue = sortedValueArray[0] - (sortedValueArray[sortedValueArray.length - 1] / 100) * 20;
+        
 
         /** Если значение превышает тонну, то округляем. */
         if (maxValue > 10) {
             setMaxY(Math.round(maxValue / 10));
         } else {
-            setMaxY(maxValue);
+            setMaxY(maxValue + 1/100 * 60);
         }
+        
 
         /** Если слишком маленькое значение - берём начальное без округления. */
         if (maxValue === 0) {

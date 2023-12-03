@@ -5,7 +5,7 @@ import { useLocalStorage } from '../../utils/useLocalStorage';
 
 const AuthPage = () => {
     const [, setJwt] = useLocalStorage('', 'jwt');
-    const [, setPersonId] = useLocalStorage('', 'personId')
+    const [, setPersonId] = useLocalStorage('', 'personId');
 
     const [passwordValue, setPasswordValue] = useState('');
     const [nameValue, setNameValue] = useState('');
@@ -18,10 +18,12 @@ const AuthPage = () => {
         setNameValue(e.target.value);
     };
 
+    // 193.124.113.99
+
     const handleAuthFormSubmit = () => {
         axios({
             method: 'post',
-            url: `http://localhost:8080/auth/login`,
+            url: `http://193.124.113.99:8080/auth/login`,
             withCredentials: false,
             data: JSON.stringify({
                 name: nameValue,
@@ -32,10 +34,10 @@ const AuthPage = () => {
             .then((response: any) => {
                 if (response.status === 200) {
                     const token = response.headers.authorization;
-                    const personId = response.data.id
+                    const personId = response.data.id;
 
                     setJwt(token);
-                    setPersonId(personId)
+                    setPersonId(personId);
                 }
             })
             .then(() => {

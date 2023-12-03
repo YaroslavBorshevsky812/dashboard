@@ -11,6 +11,7 @@ import { storeWorkoutService, workoutService } from '../../../services/WorkoutSe
 import { useObservable } from '../../../utils/useObservable';
 import moment from 'moment/moment';
 import { closeDialog, openDialog } from '../../Dialogs/DialogLayer';
+import { WorkoutModel } from '../../../Models/WorkoutModel';
 
 interface Props {
     /** Клик по кнопке создания новой тренировки. */
@@ -82,18 +83,21 @@ const WorkoutListCard: FC<Props> = (props) => {
         );
     };
 
+    /** Рендер списка тренировок */
     const renderWorkoutList = () => {
-        return workoutList.map((item, index) => (
-            <ListItem
-                key={index}
-                itemType={EItemListType.SIMPLE}
-                isBtnNeeded
-                leftTitle={moment(item.date).format('DD.MM.YYYY')}
-                rightTitle={item.title}
-                onItemClick={() => handleExerciseItemClick(item.id)}
-                onDeleteBtn={() => handleDeleteBtnClick(item.id)}
-            />
-        ));
+        return workoutList
+            .sort((a: WorkoutModel, b: WorkoutModel) => moment.utc(b.date).diff(moment.utc(a.date)))
+            .map((item: WorkoutModel, index) => (
+                <ListItem
+                    key={index}
+                    itemType={EItemListType.SIMPLE}
+                    isBtnNeeded
+                    leftTitle={moment(item.date).format('DD.MM.YYYY')}
+                    rightTitle={item.title}
+                    onItemClick={() => handleExerciseItemClick(item.id)}
+                    onDeleteBtn={() => handleDeleteBtnClick(item.id)}
+                />
+            ));
     };
 
     return (

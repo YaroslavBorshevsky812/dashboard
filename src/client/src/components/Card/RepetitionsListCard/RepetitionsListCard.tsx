@@ -14,6 +14,9 @@ import { RepetitionCreationModel } from '../../../Models/RepetitionCreationModel
 import InputNumber from '../../InputNumber/InputNumber';
 import { navigationService } from '../../../services/NavigationService';
 import RepetitionItem from '../../ListItem/RepetitionItem/RepetitionItem';
+import { workoutStatisticService } from '../../../services/WorkoutStatisticService';
+import { MaxWeightPureExerciseModel } from '../../../Models/MaxWeightPureExerciseModel';
+import { TotalWeightPureExerciseModel } from '../../../Models/TotalWeightPureExerciseModel';
 
 const RepetitionsListCard = () => {
     /** Показывать ли панель создания нового подхода. */
@@ -50,6 +53,24 @@ const RepetitionsListCard = () => {
 
                     setNewRepWeight(null);
                     setNewAmountOfReps(null);
+
+                    // Спрятать!
+                    workoutService.requestWorkoutInfoFromServer().then((res) => {
+                        
+            
+                        workoutStatisticService.setMaxWeightPureExercise(
+                            res.data.maxWeightPureExercise.sort((b: MaxWeightPureExerciseModel, a: MaxWeightPureExerciseModel) =>
+                                moment.utc(b.date).diff(moment.utc(a.date)),
+                            ),
+                        );
+            
+                        workoutStatisticService.setTotalWeightPureExercise(
+                            res.data.totalWeightPureExercise.sort(
+                                (b: TotalWeightPureExerciseModel, a: TotalWeightPureExerciseModel) =>
+                                    moment.utc(b.date).diff(moment.utc(a.date)),
+                            ),
+                        );
+                    })
                 });
         });
     };
