@@ -64,6 +64,8 @@
 
     &__wrapper {
         width: 100%;
+        height: 100%;
+        overflow: hidden;
     }
 
     .card {
@@ -72,9 +74,10 @@
     }
 
     .charts {
-        height: 50%;
+        height: 55%;
         margin-top: 20px;
         margin-bottom: 10px;
+        overflow: hidden;
 
         &__item {
             flex-direction: column;
@@ -94,9 +97,10 @@
     .workout-list-card__wrapper {
         max-width: 100%;
         height: 50%;
+        overflow: hidden;
 
         .workout-list {
-            height: 230px;
+            height: 160px;
         }
 
         .card__header__btn {
@@ -112,15 +116,23 @@
     .main-board-top-part__right {
         width: 100%;
         margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .workout-item-card {
+        height: initial;
     }
 
     .workout-item-card__content {
         padding: 0;
-        height: 220px;
+        height: 160px;
     }
 
     .workout-item-card__left-side {
         width: 70%;
+        height: 160px;
     }
 
     .workout-item-card__right-side {
