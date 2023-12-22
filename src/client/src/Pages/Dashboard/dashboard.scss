@@ -13,8 +13,6 @@
     flex-direction: row;
     transition: all 0.4s ease-in-out;
 
-    
-
     &__wrapper {
         width: 100%;
         height: 100%;
@@ -56,4 +54,87 @@
 
 .dashboard.active {
     scale: (0.99);
+}
+
+.mobile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+
+    &__wrapper {
+        width: 100%;
+    }
+
+    .card {
+        padding-top: 0;
+    }
+
+    .charts {
+        height: 50%;
+        margin-top: 20px;
+        margin-bottom: 10px;
+
+        &__item {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chart__wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 95%;
+            padding: 0;
+        }
+    }
+
+    .workout-list-card__wrapper {
+        max-width: 100%;
+        height: 50%;
+
+        .workout-list {
+            height: 230px;
+        }
+
+        .card__header__btn {
+            display: none;
+        }
+    }
+
+    .scrollbar {
+        margin-right: 5px;
+    }
+
+    .main-board-top-part__left,
+    .main-board-top-part__right {
+        width: 100%;
+        margin: 0;
+    }
+
+    .workout-item-card__content {
+        padding: 0;
+        height: 220px;
+    }
+
+    .workout-item-card__left-side {
+        width: 70%;
+    }
+
+    .workout-item-card__right-side {
+        width: 30%;
+    }
+
+    .workout-item-card__repetitions .repetitions-list {
+        height: 120px;
+    }
+
+    .list-item {
+        padding-right: 0;
+    }
+
+    .input-number__wrapper {
+        margin-right: 10px;
+    }
 }
