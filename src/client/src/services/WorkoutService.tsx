@@ -68,7 +68,7 @@ class WorkoutService {
         const { jwt, personId } = this.getLocalStorageInfo();
         return axios({
             method: 'get',
-            url: `http://localhost:8080/dashboard/${personId}`,
+            url: `http://193.124.113.99:8080/dashboard/${personId}`,
             withCredentials: false,
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -83,7 +83,7 @@ class WorkoutService {
         const { jwt } = this.getLocalStorageInfo();
         return axios({
             method: 'get',
-            url: `http://localhost:8080/dashboard/item/${workoutId}`,
+            url: `http://193.124.113.99:8080/dashboard/item/${workoutId}`,
             withCredentials: false,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded', Authorization: `Bearer ${jwt}` },
         });
@@ -93,7 +93,7 @@ class WorkoutService {
         const { jwt } = this.getLocalStorageInfo();
         return axios({
             method: 'get',
-            url: `http://localhost:8080/workout/${currentExerciseId}`,
+            url: `http://193.124.113.99:8080/workout/${currentExerciseId}`,
             withCredentials: false,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded', Authorization: `Bearer ${jwt}` },
         });
@@ -103,7 +103,7 @@ class WorkoutService {
         const { jwt } = this.getLocalStorageInfo();
         return axios({
             method: 'get',
-            url: `http://localhost:8080/dashboard/info`,
+            url: `http://193.124.113.99:8080/dashboard/info`,
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${jwt}`,
@@ -117,7 +117,7 @@ class WorkoutService {
         const { jwt, personId } = this.getLocalStorageInfo();
         return axios({
             method: 'post',
-            url: `http://localhost:8080/dashboard`,
+            url: `http://193.124.113.99:8080/dashboard`,
             data: JSON.stringify({
                 date: obj.date,
                 title: obj.title,
@@ -132,7 +132,7 @@ class WorkoutService {
         const { jwt } = this.getLocalStorageInfo();
         return axios({
             method: 'post',
-            url: `http://localhost:8080/workout`,
+            url: `http://193.124.113.99:8080/workout`,
             data: JSON.stringify({
                 training_day_id: obj.training_day_id,
                 workout_name: obj.workout_name,
@@ -146,7 +146,7 @@ class WorkoutService {
         const { jwt } = this.getLocalStorageInfo();
         return axios({
             method: 'post',
-            url: `http://localhost:8080/repetitions`,
+            url: `http://193.124.113.99:8080/repetitions`,
             data: JSON.stringify({
                 workout_item_id: obj.workout_item_id,
                 number_of_set: obj.number_of_set,
@@ -162,7 +162,7 @@ class WorkoutService {
         const { jwt } = this.getLocalStorageInfo();
         return axios({
             method: 'delete',
-            url: `http://localhost:8080/dashboard/${workoutId}`,
+            url: `http://193.124.113.99:8080/dashboard/${workoutId}`,
             withCredentials: false,
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwt}` },
         });
@@ -172,7 +172,7 @@ class WorkoutService {
         const { jwt } = this.getLocalStorageInfo();
         return axios({
             method: 'delete',
-            url: `http://localhost:8080/workout/${exerciseId}`,
+            url: `http://193.124.113.99:8080/workout/${exerciseId}`,
             withCredentials: false,
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwt}` },
         });
@@ -182,7 +182,7 @@ class WorkoutService {
         const { jwt } = this.getLocalStorageInfo();
         return axios({
             method: 'patch',
-            url: `http://localhost:8080/repetitions`,
+            url: `http://193.124.113.99:8080/repetitions`,
             data: JSON.stringify({
                 id: obj.id,
                 workout_item_id: obj.workout_item_id,

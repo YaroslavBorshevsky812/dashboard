@@ -24,7 +24,7 @@ const AuthPage = () => {
     const handleAuthFormSubmit = () => {
         axios({
             method: 'post',
-            url: `http://localhost:8080/auth/login`,
+            url: `http://193.124.113.99:8080/auth/login`,
             withCredentials: false,
             data: JSON.stringify({
                 name: nameValue,
