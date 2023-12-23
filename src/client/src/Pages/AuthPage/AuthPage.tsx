@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Input } from 'antd';
 import './authPage.scss';
 import axios from 'axios';
 import { useLocalStorage } from '../../utils/useLocalStorage';
@@ -46,23 +47,25 @@ const AuthPage = () => {
     };
 
     return (
-        <div className="auth-panel">
-            <div className="auth-panel__wrapper">
-                <div className="auth-panel__header">
-                    <h3>Авторизация</h3>
-                </div>
-                <div className="auth-panel__body">
-                    <div className="input__wrapper">
-                        <label htmlFor="login">Имя:</label>
-                        <input value={nameValue} onChange={(e) => handleNameChange(e)} id="login" />
+        <div className="auth-page">
+            <div className="auth-panel">
+                <div className="auth-panel__wrapper">
+                    <div className="auth-panel__header">
+                        <h3>Авторизация</h3>
                     </div>
-                    <div className="input__wrapper">
-                        <label htmlFor="password">Пароль:</label>
-                        <input value={passwordValue} onChange={(e) => handlePasswordChange(e)} id="password" />
+                    <div className="auth-panel__body">
+                        <div className="input__wrapper">
+                            <label htmlFor="login">Имя</label>
+                            <Input value={nameValue} onChange={(e) => handleNameChange(e)} id="login" />
+                        </div>
+                        <div className="input__wrapper">
+                            <label htmlFor="password">Пароль</label>
+                            <Input value={passwordValue} onChange={(e) => handlePasswordChange(e)} id="password" />
+                        </div>
+                        <button onClick={handleAuthFormSubmit} className="auth-btn">
+                            <span className="auth-btn__text">Войти</span>
+                        </button>
                     </div>
-                    <button onClick={handleAuthFormSubmit} className="auth-btn">
-                        <span className="auth-btn__text">Войти</span>
-                    </button>
                 </div>
             </div>
         </div>
