@@ -10,7 +10,7 @@ const Layout = () => {
         <div className="layout">
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<StartPage/>}/>
+                    <Route path="/" element={<StartPage />} />
                     <Route path="/auth" element={<AuthPage />} />
                     <Route
                         path="/dashboard"
