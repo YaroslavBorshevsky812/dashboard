@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Input } from 'antd';
 import './authPage.scss';
-import axios from 'axios';
 import { useLocalStorage } from '../../utils/useLocalStorage';
+import { webService } from '../../services/WebService';
 
 const AuthPage = () => {
     const [, setJwt] = useLocalStorage('', 'jwt');
@@ -22,16 +22,8 @@ const AuthPage = () => {
     // 193.124.113.99
 
     const handleAuthFormSubmit = () => {
-        axios({
-            method: 'post',
-            url: `http://193.124.113.99:8080/auth/login`,
-            withCredentials: false,
-            data: JSON.stringify({
-                name: nameValue,
-                password: passwordValue,
-            }),
-            headers: { 'Content-Type': 'application/json' },
-        })
+        webService
+            .loginUser(nameValue, passwordValue)
             .then((response: any) => {
                 if (response.status === 200) {
                     const token = response.headers.authorization;

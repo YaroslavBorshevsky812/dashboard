@@ -48,10 +48,12 @@ public class WorkoutDayService {
     }
 
     @Transactional
-    public List<MaxWeightDTO> getMaxWeightPureExercise() {
-        return  workoutDayRepository.getMaxWeight();
+    public List<MaxWeightDTO> getMaxWeightPureExercise(int id) {
+        return  workoutDayRepository.getMaxWeight(id);
     }
 
     @Transactional
-    public List<TotalWeightPureExercise> getTotalWeightPureExercise() {return workoutDayRepository.getTotalWeightPureExercise();}
+    public List<TotalWeightPureExercise> getTotalWeightPureExercise(int id) {
+        return workoutDayRepository.getTotalWeightPureExercise(id);
+    }
 }

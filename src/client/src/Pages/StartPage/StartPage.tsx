@@ -5,7 +5,7 @@ const StartPage = () => {
     return (
         <div className="start-page">
             <div className="btns__wrapper">
-                <Link className="simple-btn" to={'/auth'}>
+                <Link className="simple-btn" to={'/registration'}>
                     Регистрация
                 </Link>
 

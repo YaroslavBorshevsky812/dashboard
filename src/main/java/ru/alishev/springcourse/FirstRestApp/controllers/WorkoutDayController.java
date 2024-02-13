@@ -73,8 +73,8 @@ public class WorkoutDayController {
         workoutDayService.deleteWorkoutDay(id);
     }
 
-    @GetMapping("/info")
-    public StatisticDTO getMaxWeightPureExercise() {
-        return new StatisticDTO(workoutDayService.getTotalWeightPureExercise(), workoutDayService.getMaxWeightPureExercise());
+    @GetMapping("/info/{id}")
+    public StatisticDTO getMaxWeightPureExercise(@PathVariable("id") int id) {
+        return new StatisticDTO(workoutDayService.getTotalWeightPureExercise(id), workoutDayService.getMaxWeightPureExercise(id));
     }
 }

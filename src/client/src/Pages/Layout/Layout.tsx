@@ -4,6 +4,7 @@ import './layout.scss';
 import AuthPage from '../AuthPage/AuthPage';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import StartPage from '../StartPage/StartPage';
+import RegistrationPage from '../RegistrationPage/RegistrationPage';
 
 const Layout = () => {
     return (
@@ -12,6 +13,7 @@ const Layout = () => {
                 <Routes>
                     <Route path="/" element={<StartPage />} />
                     <Route path="/auth" element={<AuthPage />} />
+                    <Route path="/registration" element={<RegistrationPage />} />
                     <Route
                         path="/dashboard"
                         element={

@@ -17,17 +17,21 @@ public interface WorkoutDayRepository extends JpaRepository<WorkoutDayEntity, In
 
     @Query("SELECT new ru.alishev.springcourse.FirstRestApp.dto.MaxWeightDTO(wd.date, wi.workout_name, MAX(ri.weight)) " +
             "FROM WorkoutDayEntity wd " +
+            "JOIN wd.person p " +
             "JOIN wd.items wi " +
             "JOIN wi.repetitions ri " +
+            "WHERE p.id = :personId " +
             "GROUP BY wd.date, wi.workout_name")
-    List<MaxWeightDTO> getMaxWeight();
+    List<MaxWeightDTO> getMaxWeight(@Param("personId") int personId);
 
     @Query("SELECT new ru.alishev.springcourse.FirstRestApp.dto.TotalWeightPureExercise(wd.date, wi.workout_name, SUM(ri.weight * ri.repetitions_number)) " +
             "FROM WorkoutDayEntity wd " +
+            "JOIN wd.person p " +
             "JOIN wd.items wi " +
             "JOIN wi.repetitions ri " +
+            "WHERE p.id = :personId " +
             "GROUP BY wd.date, wi.workout_name")
-    List<TotalWeightPureExercise> getTotalWeightPureExercise();
+    List<TotalWeightPureExercise> getTotalWeightPureExercise(@Param("personId") int personId);
     @Query("SELECT w FROM WorkoutDayEntity w WHERE w.person.id = :personId")
     List<WorkoutDayEntity> getWorkoutDaysByPersonId(@Param("personId") int personId);
 }

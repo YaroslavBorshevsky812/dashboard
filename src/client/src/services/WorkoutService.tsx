@@ -100,10 +100,10 @@ class WorkoutService {
     };
 
     requestWorkoutInfoFromServer = (): Promise<any> => {
-        const { jwt } = this.getLocalStorageInfo();
+        const { jwt, personId } = this.getLocalStorageInfo();
         return axios({
             method: 'get',
-            url: `http://193.124.113.99:8080/dashboard/info`,
+            url: `http://193.124.113.99:8080/dashboard/info/${personId}`,
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${jwt}`,
