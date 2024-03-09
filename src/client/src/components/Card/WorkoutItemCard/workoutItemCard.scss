@@ -15,6 +15,10 @@
         gap: 20px;
 
         padding: 0px 20px;
+
+        .right-arrow {
+            scale: 2;
+        }
     }
 
     &__content {
@@ -81,18 +85,6 @@
         .repetitions-list {
             height: 200px;
             margin-bottom: 10px;
-            // .list-item:not(:last-child) {
-            //     margin-bottom: 10px;
-            // }
-        }
-    }
-
-    .right-arrow {
-        width: 35px;
-        transition: all 0.1s;
-
-        &:hover {
-            fill: $db-hover;
         }
     }
 

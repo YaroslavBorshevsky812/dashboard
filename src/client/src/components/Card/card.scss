@@ -61,16 +61,28 @@
         top: 30%;
 
         border: 1px solid white;
-        padding: 20px 10px;
+        padding: 20px 6px;
         padding-right: 5px;
 
         border-bottom-left-radius: 75%;
         border-top-left-radius: 75%;
 
         &__item {
-            max-width: 15px;
             & + & {
                 margin-top: 10px;
+            }
+        }
+
+        .default-icon {
+            svg {
+                fill: #fff;
+            }
+            scale: 0.8;
+
+            &:hover {
+                svg {
+                    fill: $db-hover;
+                }
             }
         }
     }
@@ -79,23 +91,6 @@
     transition: 1s; /*Скорость перехода состояния элемента*/
     animation: show 0.3s 1; /* Указываем название анимации, её время и количество повторов*/
     animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
-}
-
-.card__sidebar__item.calendar {
-    &:hover {
-        path {
-            stroke: $db-hover;
-        }
-    }
-}
-
-.card__sidebar__item.plus,
-.card__sidebar__item.garbage {
-    &:hover {
-        path {
-            fill: $db-hover;
-        }
-    }
 }
 
 .card.with-sidebar {

@@ -44,6 +44,7 @@
         padding: 10px;
         width: 100%;
         height: 60%;
+        z-index: 4;
     }
 }
 
@@ -120,9 +121,26 @@
 
     .workout-item-card {
         height: initial;
+        z-index: 2;
 
         &__wrapper {
             height: 100%;
+
+            .date-time-field-wrapper .date-picker-calendar {
+                padding: 10px;
+                position: absolute;
+                bottom: 64px;
+                right: -90px;
+
+                .day,
+                .month__label {
+                    margin: 0px 6px 6px;
+                }
+            }
+
+            .calendar__wrapper {
+                max-width: 320px;
+            }
         }
     }
 

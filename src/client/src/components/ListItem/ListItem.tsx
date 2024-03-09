@@ -1,7 +1,7 @@
 import { FC, MouseEventHandler } from 'react';
 import './listItem.scss';
-import { ReactComponent as Garbage } from '../../assets/icons/garbage.svg';
 import { EItemListType } from '../../utils/enums/Enums';
+import { Icon } from '../Icon/Icon';
 
 interface Props {
     /** Заголовок слева */
@@ -29,15 +29,7 @@ interface Props {
 }
 
 const ListItem: FC<Props> = (props) => {
-    const {
-        leftTitle,
-        rightTitle,
-        onItemClick,
-        isBtnNeeded,
-        onMouseEnter,
-        onMouseLeave,
-        onDeleteBtn,
-    } = props;
+    const { leftTitle, rightTitle, onItemClick, isBtnNeeded, onMouseEnter, onMouseLeave, onDeleteBtn } = props;
 
     const handleDeleteBtn = (e?: React.MouseEvent) => {
         e?.stopPropagation();
@@ -49,7 +41,12 @@ const ListItem: FC<Props> = (props) => {
         <li onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onClick={onItemClick} className="list-item">
             <span className="list-item__left-title">{leftTitle}</span>
             <span className="list-item__right-title">{rightTitle}</span>
-            {isBtnNeeded && <Garbage onClick={handleDeleteBtn} className="list-item__icon" />}
+
+            {isBtnNeeded && (
+                <span onClick={handleDeleteBtn} className="list-item__icon">
+                    <Icon iconName="trash-can-outline" />
+                </span>
+            )}
         </li>
     );
 };

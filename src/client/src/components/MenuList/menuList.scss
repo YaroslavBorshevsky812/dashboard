@@ -26,13 +26,10 @@
         opacity: 1;
     }
 
-    &__icon {
-        max-height: 44px;
-        min-width: 50px;
-        margin-right: 20px;
-        height: 100%;
-
-        fill: white;
+    .default-icon {
+        min-width: 30px;
+        margin-right: 10px;
+        margin-left: 10px;
     }
 }
 

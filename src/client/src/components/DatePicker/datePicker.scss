@@ -1,0 +1,42 @@
+@import '../../assets/scss/colors';
+
+.date-time-field-wrapper {
+    position: relative;
+
+    .date-picker-input {
+        width: 150px;
+    }
+
+    .calendar-btn {
+        height: fit-content;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 8px;
+        margin: auto;
+
+        &:hover {
+            cursor: pointer;
+            border-color: #4096ff;
+        }
+
+        .default-icon {
+            svg {
+                fill: #fff;
+            }
+
+            &:hover {
+                svg {
+                    fill: $db-hover;
+                }
+            }
+        }
+    }
+
+    .date-picker-calendar {
+        position: absolute;
+        bottom: -115px;
+        right: 0;
+        z-index: 200;
+    }
+}

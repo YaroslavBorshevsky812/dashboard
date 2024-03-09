@@ -1,0 +1,30 @@
+@import '../../../assets/scss/colors';
+
+.month-short {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    min-width: 64px;
+    margin: 0px 12px 8px;
+    padding: 8px 0px;
+    transition: all 0.3s ease;
+    color: #ffff;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        background: rgba($db-hover, 0.8);
+        color: #fff;
+    }
+
+    &--disabled {
+        color: rgba(#000, 0.38);
+    }
+
+    &--active {
+        border: 1px solid $db-hover;
+        color: #fff;
+    }
+}

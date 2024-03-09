@@ -1,7 +1,5 @@
 import './menuList.scss';
-import { ReactComponent as Dumbell } from '../../assets/icons/dumbell.svg';
-import { ReactComponent as Food } from '../../assets/icons/food.svg';
-import { ReactComponent as Notes } from '../../assets/icons/notes.svg';
+import { Icon } from '../Icon/Icon';
 
 const MenuList = () => {
     const handleMenuItemClick = (e: React.MouseEvent) => {
@@ -12,19 +10,19 @@ const MenuList = () => {
         <ul className="menu-list">
             <li onClick={handleMenuItemClick} className="menu-item">
                 <div className="menu-item__content">
-                    <Dumbell className="menu-item__content__icon" />
+                    <Icon iconName="sport" />
                     <span className="menu-item__content__text">Спорт</span>
                 </div>
             </li>
             <li onClick={handleMenuItemClick} className="menu-item">
                 <div className="menu-item__content">
-                    <Notes className="menu-item__content__icon" />
+                    <Icon iconName="edit-notes" />
                     <span className="menu-item__content__text">Заметки</span>
                 </div>
             </li>
             <li onClick={handleMenuItemClick} className="menu-item">
                 <div className="menu-item__content">
-                    <Food className="menu-item__content__icon" />
+                    <Icon iconName="food" />
                     <span className="menu-item__content__text">Питание</span>
                 </div>
             </li>

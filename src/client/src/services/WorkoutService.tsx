@@ -74,9 +74,17 @@ class WorkoutService {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 Authorization: `Bearer ${jwt}`,
             },
-        }).then((response) => {
-            storeWorkoutService.workoutList.set(response.data);
-        });
+        })
+            .then((response) => {
+                storeWorkoutService.workoutList.set(response.data);
+            })
+            .catch((e) => {
+                /** В случае если по основному запросу получаем 401 - редирект на страницу авторизации. */
+                const status = e.response.status;
+                if (status === 401) {
+                    window.location.href = '/auth';
+                }
+            });
     };
 
     requestWorkoutFromServer = (workoutId: number): Promise<any> => {
@@ -112,8 +120,6 @@ class WorkoutService {
     };
 
     createNewWorkout = (obj: WorkoutCreationRequestModel): Promise<any> => {
-        console.log('!');
-
         const { jwt, personId } = this.getLocalStorageInfo();
         return axios({
             method: 'post',

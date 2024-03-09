@@ -1,0 +1,33 @@
+@import '../../../assets/scss/colors';
+
+.date-picker-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &__text {
+        padding: 8px 16px;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid #ffffff00;
+
+        &:hover {
+            border: 1px solid $db-hover;
+            background: rgba(#fff, 0.1);
+        }
+    }
+
+    .right-arrow,
+    .left-arrow {
+        scale: 0.9;
+        width: initial;
+
+        &:hover {
+            svg {
+                fill: $db-hover;
+            }
+        }
+    }
+}

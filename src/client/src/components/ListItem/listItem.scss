@@ -1,8 +1,6 @@
 @import '../../assets/scss/colors';
 
 .list-item {
-    // background-color: $db-bg-main;
-
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -37,7 +35,7 @@
     }
 
     &__icon {
-        max-width: 17px;
+        scale: 0.8;
         margin-left: auto;
         fill: white;
 
@@ -51,10 +49,9 @@
     }
 
     .edit-btn {
-        margin-right: 10px;
         &:hover {
-            path {
-                stroke: $db-hover;
+            svg {
+                fill: $db-hover;
             }
         }
     }
@@ -65,6 +62,17 @@
 
     &:hover {
         border-bottom: 1px solid $db-hover;
+    }
+
+    .right-arrow {
+        scale: 1.3;
+        margin-left: 15px;
+
+        &:hover {
+            svg {
+                fill: $db-hover;
+            }
+        }
     }
 }
 

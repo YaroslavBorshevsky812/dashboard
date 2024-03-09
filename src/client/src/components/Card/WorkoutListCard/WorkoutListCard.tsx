@@ -3,8 +3,6 @@ import Card from '../Card';
 import './workoutListCard.scss';
 import ListItem from '../../ListItem/ListItem';
 import Scrollbar from '../../Scrollbar/Scrollbar';
-import { ReactComponent as Calendar } from '../../../assets/icons/calendar.svg';
-import { ReactComponent as Plus } from '../../../assets/icons/plus-circle.svg';
 import { navigationService } from '../../../services/NavigationService';
 import { ECardType, EItemListType } from '../../../utils/enums/Enums';
 import { storeWorkoutService, workoutService } from '../../../services/WorkoutService';
@@ -12,6 +10,7 @@ import { useObservable } from '../../../utils/useObservable';
 import moment from 'moment/moment';
 import { closeDialog, openDialog } from '../../Dialogs/DialogLayer';
 import { WorkoutModel } from '../../../Models/WorkoutModel';
+import { Icon } from '../../Icon/Icon';
 
 interface Props {
     /** Клик по кнопке создания новой тренировки. */
@@ -57,8 +56,12 @@ const WorkoutListCard: FC<Props> = (props) => {
     const renderSideBar = (): JSX.Element => {
         return (
             <div className="card__sidebar">
-                <Calendar className="card__sidebar__item calendar" />
-                <Plus onClick={onCreateNewWokroutBtnClick} className="card__sidebar__item plus" />
+                <span className="card__sidebar__item">
+                    <Icon iconName="calendar" />
+                </span>
+                <span onClick={onCreateNewWokroutBtnClick} className="card__sidebar__item plus">
+                    <Icon iconName="plus-circle-outline" />
+                </span>
             </div>
         );
     };

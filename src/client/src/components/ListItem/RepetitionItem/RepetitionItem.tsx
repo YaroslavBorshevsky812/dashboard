@@ -1,11 +1,10 @@
 import { FC, useState } from 'react';
-import { ReactComponent as Edit } from '../../../assets/icons/edit.svg';
 import InputNumber from '../../InputNumber/InputNumber';
-import { ReactComponent as RightArrow } from '../../../assets/icons/next.svg';
 import { RepetitionModel } from '../../../Models/RepetitionModel';
 import { storeWorkoutService } from '../../../services/WorkoutService';
 import { useObservable } from '../../../utils/useObservable';
 import { ExerciseModel } from '../../../Models/ExerciseModel';
+import { Icon } from '../../Icon/Icon';
 
 interface Props {
     /** Клик по айтему */
@@ -82,7 +81,9 @@ const RepetitionItem: FC<Props> = (props) => {
                     <span>{repetition?.weight}</span>
                     <span>{repetition?.repetitions_number}</span>
                 </div>
-                <Edit onClick={handleEditActivateBtnClick} className="edit-btn" />
+                <span onClick={handleEditActivateBtnClick} className="edit-btn">
+                    <Icon iconName="edit" />
+                </span>
             </li>
         );
     };
@@ -95,8 +96,9 @@ const RepetitionItem: FC<Props> = (props) => {
                     <InputNumber onChange={handleWeightChange} value={weight} />
                     <InputNumber onChange={handleRepetitionsNumberChange} value={repetitionsNumber} />
                 </div>
-
-                <RightArrow onClick={handleEditDoneBtnClick} className="right-arrow" />
+                <span onClick={handleEditDoneBtnClick} className="right-arrow">
+                    <Icon iconName="doube-arrow-right" />
+                </span>
             </li>
         );
     };

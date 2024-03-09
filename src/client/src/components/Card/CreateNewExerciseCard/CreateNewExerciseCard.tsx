@@ -54,8 +54,6 @@ const CreateNewExerciseCard = () => {
         setNewExerciseTitle(exerciseTitle);
         closeDialog();
     };
-
-    console.log(newExerciseTitle);
     
 
     const renderSelectTitleModalWindow = () => {

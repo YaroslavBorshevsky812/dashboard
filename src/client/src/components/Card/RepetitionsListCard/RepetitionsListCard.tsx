@@ -1,15 +1,12 @@
 import { ECardType } from '../../../utils/enums/Enums';
 import Scrollbar from '../../Scrollbar/Scrollbar';
 import Card from '../Card';
-import { ReactComponent as Plus } from '../../../assets/icons/plus-circle.svg';
-import { ReactComponent as Garbage } from '../../../assets/icons/garbage.svg';
 import { useState } from 'react';
 import { storeWorkoutService, workoutService } from '../../../services/WorkoutService';
 import { useObservable } from '../../../utils/useObservable';
 import { RepetitionModel } from '../../../Models/RepetitionModel';
 import moment from 'moment/moment';
 import { ExerciseModel } from '../../../Models/ExerciseModel';
-import { ReactComponent as RightArrow } from '../../../assets/icons/next.svg';
 import { RepetitionCreationModel } from '../../../Models/RepetitionCreationModel';
 import InputNumber from '../../InputNumber/InputNumber';
 import { navigationService } from '../../../services/NavigationService';
@@ -17,6 +14,7 @@ import RepetitionItem from '../../ListItem/RepetitionItem/RepetitionItem';
 import { workoutStatisticService } from '../../../services/WorkoutStatisticService';
 import { MaxWeightPureExerciseModel } from '../../../Models/MaxWeightPureExerciseModel';
 import { TotalWeightPureExerciseModel } from '../../../Models/TotalWeightPureExerciseModel';
+import { Icon } from '../../Icon/Icon';
 
 const RepetitionsListCard = () => {
     /** Показывать ли панель создания нового подхода. */
@@ -56,21 +54,20 @@ const RepetitionsListCard = () => {
 
                     // Спрятать!
                     workoutService.requestWorkoutInfoFromServer().then((res) => {
-                        
-            
                         workoutStatisticService.setMaxWeightPureExercise(
-                            res.data.maxWeightPureExercise.sort((b: MaxWeightPureExerciseModel, a: MaxWeightPureExerciseModel) =>
-                                moment.utc(b.date).diff(moment.utc(a.date)),
+                            res.data.maxWeightPureExercise.sort(
+                                (b: MaxWeightPureExerciseModel, a: MaxWeightPureExerciseModel) =>
+                                    moment.utc(b.date).diff(moment.utc(a.date)),
                             ),
                         );
-            
+
                         workoutStatisticService.setTotalWeightPureExercise(
                             res.data.totalWeightPureExercise.sort(
                                 (b: TotalWeightPureExerciseModel, a: TotalWeightPureExerciseModel) =>
                                     moment.utc(b.date).diff(moment.utc(a.date)),
                             ),
                         );
-                    })
+                    });
                 });
         });
     };
@@ -102,8 +99,12 @@ const RepetitionsListCard = () => {
     const renderSideBar = (): JSX.Element => {
         return (
             <div className="card__sidebar">
-                <Garbage className="card__sidebar__item garbage" />
-                <Plus onClick={handleCreateNewRepetitionClick} className="card__sidebar__item plus" />
+                <span className="card__sidebar__item garbage">
+                    <Icon iconName="trash-can-outline" />
+                </span>
+                <span onClick={handleCreateNewRepetitionClick} className="card__sidebar__item plus">
+                    <Icon iconName="plus-circle-outline" />
+                </span>
             </div>
         );
     };
@@ -130,7 +131,9 @@ const RepetitionsListCard = () => {
                     <InputNumber value={newAmountOfReps ?? ''} onChange={handleAmountOfRepsChange} />
                 </div>
 
-                <RightArrow onClick={handleEditDoneBtnClick} className="right-arrow" />
+                <span onClick={handleEditDoneBtnClick} className="right-arrow">
+                    <Icon iconName="doube-arrow-right" />
+                </span>
             </li>
         );
     };
