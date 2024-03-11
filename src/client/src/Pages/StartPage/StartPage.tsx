@@ -9,6 +9,10 @@ const StartPage = () => {
                     Регистрация
                 </Link>
 
+                <Link className="simple-btn" to={'/auth'}>
+                    Авторизоваться
+                </Link>
+
                 <Link className="simple-btn" to={'/dashboard'}>
                     Войти
                 </Link>

@@ -1,7 +1,6 @@
 import { Input } from 'antd';
 import { ECardType } from '../../../utils/enums/Enums';
 import Card from '../Card';
-import { ReactComponent as RightArrow } from '../../../assets/icons/next.svg';
 import { navigationService } from '../../../services/NavigationService';
 import { useState } from 'react';
 import { storeWorkoutService, workoutService } from '../../../services/WorkoutService';
@@ -9,6 +8,7 @@ import { useObservable } from '../../../utils/useObservable';
 import { closeDialog, openDialog } from '../../Dialogs/DialogLayer';
 import { storeWorkoutStatisticService } from '../../../services/WorkoutStatisticService';
 import ListItem from '../../ListItem/ListItem';
+import { Icon } from '../../Icon/Icon';
 
 const CreateNewExerciseCard = () => {
     /** Текущая тренировка. */
@@ -54,7 +54,6 @@ const CreateNewExerciseCard = () => {
         setNewExerciseTitle(exerciseTitle);
         closeDialog();
     };
-    
 
     const renderSelectTitleModalWindow = () => {
         return (
@@ -85,10 +84,14 @@ const CreateNewExerciseCard = () => {
         >
             <div className="workout-item-card__content">
                 <div className="workout-item-card__step-one">
-                    <Input value={newExerciseTitle ?? null} onChange={handleChangeTitle} placeholder="Введите название упражнения" />
-                    <button onClick={handleMoveToRepetitionsList}>
-                        <RightArrow className="right-arrow" />
-                    </button>
+                    <Input
+                        value={newExerciseTitle ?? null}
+                        onChange={handleChangeTitle}
+                        placeholder="Введите название упражнения"
+                    />
+                    <span onClick={handleMoveToRepetitionsList} className="right-arrow">
+                        <Icon iconName="doube-arrow-right" />
+                    </span>
                     <button className="select-btn" onClick={handleOpenSelectModal}>
                         Выберете из существующих
                     </button>

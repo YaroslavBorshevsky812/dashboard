@@ -9,6 +9,7 @@ import { DialogLayer } from '../../components/Dialogs/DialogLayer';
 import TopInfo from '../../components/TopInfo/TopInfo';
 import { isMobileView } from '../../utils/Utils';
 import { useObservable } from '../../utils/useObservable';
+import { workoutService } from '../../services/WorkoutService';
 
 const Dashboard = () => {
     /** Стейт для анимации bounce элемента dashboard. */
@@ -27,7 +28,9 @@ const Dashboard = () => {
     };
 
     const setWokroutItemCard = () => {
+        workoutService.setCurrentExerciseList(null);
         navigationService.setCurrentWorkoutCard(ECardType.CREATE_NEW_WORKOUT);
+        
     };
 
     const renderMobilePart = (): JSX.Element => {

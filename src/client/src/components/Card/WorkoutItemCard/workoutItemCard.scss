@@ -18,6 +18,12 @@
 
         .right-arrow {
             scale: 2;
+
+            svg {
+                &:hover {
+                    fill: $db-hover;
+                }
+            }
         }
     }
 

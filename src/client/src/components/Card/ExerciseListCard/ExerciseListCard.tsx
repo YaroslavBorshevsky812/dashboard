@@ -49,6 +49,9 @@ const ExerciseListCard = () => {
 
     /** Рендер списка упражнений. */
     const renderExericseList = () => {
+        if (!exerciseList) {
+            return;
+        }
         return exerciseList.map((item: ExerciseModel, index) => (
             <ListItem
                 key={index}
@@ -92,7 +95,7 @@ const ExerciseListCard = () => {
             >
                 <div className="workout-item-card__content">
                     <ul className="workout-item-card__left-side">
-                        {exerciseList.length ? (
+                        {exerciseList?.length ? (
                             <Scrollbar>{renderExericseList()}</Scrollbar>
                         ) : (
                             <span>Тут пока ничего нет</span>

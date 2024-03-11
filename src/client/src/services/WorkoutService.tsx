@@ -11,7 +11,7 @@ export const storeWorkoutService = {
     /** Список тренировок. */
     workoutList: new Observable<WorkoutModel[]>([]),
     /** Список упражнений конкретной тренировки. */
-    currentExerciseList: new Observable([]),
+    currentExerciseList: new Observable<[]| null>([]),
     /** Идентификатор текущей тренировки. */
     currentWorkoutId: new Observable<number | null>(null),
     /** Текущая тренировка. */
@@ -37,7 +37,7 @@ class WorkoutService {
         storeWorkoutService.currentWorkoutId.set(id);
     };
 
-    setCurrentExerciseList = (exercises: []) => {
+    setCurrentExerciseList = (exercises: [] | null) => {
         storeWorkoutService.currentExerciseList.set(exercises);
     };
 
