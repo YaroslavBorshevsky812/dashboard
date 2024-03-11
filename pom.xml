@@ -8,14 +8,15 @@
 		<version>2.7.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ru.alishev.springcourse</groupId>
-	<artifactId>FirstRestApp</artifactId>
+	<groupId>ru.wayne.dashboard</groupId>
+	<artifactId>Dashboard-App</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>FirstRestApp</name>
-	<description>First REST Application</description>
+	<name>Dashboard-App</name>
+	<description>Dashboard Application</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

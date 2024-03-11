@@ -19,7 +19,7 @@ const AuthPage = () => {
         setNameValue(e.target.value);
     };
 
-    // 193.124.113.99
+    // localhost
 
     const handleAuthFormSubmit = () => {
         webService
