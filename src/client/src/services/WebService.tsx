@@ -25,7 +25,7 @@ class WebService {
     loginUser = (name: string, password: string): Promise<any> => {
         return axios({
             method: 'post',
-            url: `http://localhost:8080/auth/login`,
+            url: `http://193.124.113.99:8080/auth/login`,
             withCredentials: false,
             data: JSON.stringify({
                 name: name,
@@ -38,7 +38,7 @@ class WebService {
     signUpUser = (name: string, password: string): Promise<any> => {
         return axios({
             method: 'post',
-            url: `http://localhost:8080/auth/registration`,
+            url: `http://193.124.113.99:8080/auth/registration`,
             withCredentials: false,
             data: JSON.stringify({
                 name: name,
