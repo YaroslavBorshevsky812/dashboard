@@ -41,7 +41,11 @@ const DatePicker: FC<Props> = (props) => {
      * @param date Дата.
      *
      */
-    const handleCalendarChange = (date?: any): void => {
+    const handleCalendarChange = (date: Date): void => {
+        const currentDate = new Date();
+        date.setHours(currentDate.getHours())
+        date.setMinutes(currentDate.getMinutes())
+        date.setSeconds(currentDate.getSeconds())
         setSelectedDate(date);
         setInputValue(format(date, 'dd-MM-yyyy', { locale }));
         setIsCalendarShown(false);

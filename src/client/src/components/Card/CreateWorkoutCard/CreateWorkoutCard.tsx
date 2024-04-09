@@ -19,8 +19,8 @@ const CreateWorkoutCard = () => {
         setTitle(e.target.value);
     };
 
-    const handleDatePicker = (pickedDate: any) => {
-        setDate(moment(pickedDate.$d).toISOString());
+    const handleDatePicker = (pickedDate: any) => {  
+        setDate(moment(pickedDate).toISOString());
     };
 
     const handleCreateNewWorkoutBtnClick = () => {
