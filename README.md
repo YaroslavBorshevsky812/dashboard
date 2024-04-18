@@ -19,3 +19,5 @@
 ![intro](https://github.com/YaroslavBorshevsky812/dashboard/assets/69201336/66a29ba6-eef3-4aeb-a82c-ba8413476054)
 
 ![step](https://github.com/YaroslavBorshevsky812/dashboard/assets/69201336/ac706285-eb0d-4fcb-9108-521d8dc69037)
+
+![gif](https://github.com/YaroslavBorshevsky812/dashboard/assets/69201336/dda73951-a972-4626-8fef-8f886aa51d0e)
